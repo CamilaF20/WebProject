@@ -21,7 +21,7 @@ public class Budgets extends HttpServlet {
 
     // Configuración de MongoDB
     private static final String MONGO_URI = "mongodb://localhost:27017";
-    private static final String DATABASE_NAME = "GestorPersonal";
+    private static final String DATABASE_NAME = "GastosPersonales";
     private static final String BUDGETS_COLLECTION = "budget";
 
     @Override

@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             rangeTime: rangeTime
         };
 
-        fetch('/budget-servlet', {
+        fetch('http://localhost:8080/webProject_war_exploded/Budgets', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
