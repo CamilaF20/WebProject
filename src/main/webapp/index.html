@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Presupuesto</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 20px;">
+
+<header style="text-align: center; margin-bottom: 20px;">
+    <h1 style="color: #333;">Gestión de Presupuesto</h1>
+</header>
+
+<main style="max-width: 800px; margin: 0 auto;">
+
+    <!-- Configuración del Presupuesto -->
+    <section id="setup-budget" style="margin-bottom: 30px;">
+        <h2 style="color: #2c3e50;">Configurar Presupuesto</h2>
+        <form id="budget-form" style="background: #f9f9f9; padding: 15px; border: 1px solid #ccc; border-radius: 5px;">
+            <label for="estimateAmount">Monto Total:</label><br>
+            <input type="number" id="estimateAmount" placeholder="Ingrese el presupuesto total" required
+                   style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;"><br>
+
+            <label for="rangeTime">Rango de Tiempo:</label><br>
+            <select id="rangeTime" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="WEEKLY">Semanal</option>
+                <option value="MONTHLY">Mensual</option>
+                <option value="QUARTERLY">Trimestral</option>
+                <option value="SEMI_ANNUAL">Semestral</option>
+                <option value="ANNUAL">Anual</option>
+            </select><br>
+
+            <button type="submit" style="padding: 10px 15px; background: #3498db; color: #fff; border: none; border-radius: 4px; cursor: pointer;">
+                Guardar Presupuesto
+            </button>
+        </form>
+    </section>
+
+    <!-- Gestión de Rubros -->
+    <section id="categories" style="margin-bottom: 30px;">
+        <h2 style="color: #2c3e50;">Gestión de Rubros</h2>
+        <form id="category-form" style="background: #f9f9f9; padding: 15px; border: 1px solid #ccc; border-radius: 5px;">
+            <label for="categoryName">Nombre del Rubro:</label><br>
+            <input type="text" id="categoryName" placeholder="Ej: Alimentación" required
+                   style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;"><br>
+
+            <label for="categoryValue">Monto:</label><br>
+            <input type="number" id="categoryValue" placeholder="Ingrese el monto asignado" required
+                   style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;"><br>
+
+            <button type="submit" style="padding: 10px 15px; background: #27ae60; color: #fff; border: none; border-radius: 4px; cursor: pointer;">
+                Agregar Rubro
+            </button>
+        </form>
+        <div id="category-list" style="margin-top: 10px; padding: 10px; background: #f1f1f1; border-radius: 4px;">
+            <!-- Lista de rubros -->
+        </div>
+    </section>
+
+    <!-- Registro de Transacciones -->
+    <section id="transactions" style="margin-bottom: 30px;">
+        <h2 style="color: #2c3e50;">Registrar Transacción</h2>
+        <form id="transaction-form" style="background: #f9f9f9; padding: 15px; border: 1px solid #ccc; border-radius: 5px;">
+            <label for="transactionCategory">Rubro:</label><br>
+            <select id="transactionCategory" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <!-- Opciones cargadas dinámicamente -->
+            </select><br>
+
+            <label for="transactionValue">Monto:</label><br>
+            <input type="number" id="transactionValue" placeholder="Ingrese el monto de la transacción" required
+                   style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;"><br>
+
+            <label for="transactionDescription">Descripción:</label><br>
+            <input type="text" id="transactionDescription" placeholder="Ej: Compra supermercado" required
+                   style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;"><br>
+
+            <button type="submit" style="padding: 10px 15px; background: #e67e22; color: #fff; border: none; border-radius: 4px; cursor: pointer;">
+                Registrar Transacción
+            </button>
+        </form>
+    </section>
+
+    <!-- Alertas -->
+    <section id="alerts" style="margin-bottom: 30px;">
+        <h2 style="color: #2c3e50;">Alertas</h2>
+        <div id="alert-list" style="padding: 10px; background: #f9f9f9; border-radius: 4px; border: 1px solid #ccc;">
+            <!-- Alertas dinámicas -->
+        </div>
+    </section>
+
+    <!-- Resumen -->
+    <section id="summary" style="margin-bottom: 30px;">
+        <h2 style="color: #2c3e50;">Resumen</h2>
+        <button id="generate-summary" style="padding: 10px 15px; background: #8e44ad; color: #fff; border: none; border-radius: 4px; cursor: pointer;">
+            Generar Resumen
+        </button>
+        <div id="summary-output" style="margin-top: 10px; padding: 10px; background: #f1f1f1; border-radius: 4px;">
+            <!-- Resumen dinámico -->
+        </div>
+    </section>
+</main>
+
+</body>
+</html>

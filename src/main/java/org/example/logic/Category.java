@@ -6,10 +6,10 @@ import java.util.List;
 public class Category {
     private int id;
     private String name;
-    private String value;
+    private double value;
     private List<Transaction> transactionList;
 
-    public Category(int id, String name, String value) {
+    public Category(int id, String name, double value) {
         this.id = id;
         this.name = name;
         this.value = value;
@@ -32,11 +32,11 @@ public class Category {
         this.name = name;
     }
 
-    public String getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(double value) {
         this.value = value;
     }
 
