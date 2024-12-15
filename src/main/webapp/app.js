@@ -16,8 +16,32 @@ document.addEventListener("DOMContentLoaded", () => {
         const estimateAmount = document.getElementById("estimateAmount").value;
         const rangeTime = document.getElementById("rangeTime").value;
 
-        alert(`Presupuesto guardado: $${estimateAmount} para ${rangeTime}`);
+        console.log(`Monto Total: ${estimateAmount}, Rango de Tiempo: ${rangeTime}`); // Verificar los datos
+
+        const budgetData = {
+            estimateAmount: estimateAmount,
+            rangeTime: rangeTime
+        };
+
+        fetch('/budget-servlet', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams(budgetData)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // Verifica la respuesta
+                alert(`Presupuesto guardado: $${data.estimateAmount} para ${data.rangeTime}`);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un problema al guardar el presupuesto.');
+            });
     });
+
+
 
     // Agregar rubro
     categoryForm.addEventListener("submit", (e) => {
