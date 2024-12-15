@@ -13,10 +13,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Guardar presupuesto
     budgetForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        const estimateAmount = document.getElementById("estimateAmount").value;
+
+        // Obtener los valores del formulario
+        const estimateAmount = parseFloat(document.getElementById("estimateAmount").value);
         const rangeTime = document.getElementById("rangeTime").value;
 
         console.log(`Monto Total: ${estimateAmount}, Rango de Tiempo: ${rangeTime}`); // Verificar los datos
+
+        // Asegurarse de que los datos son válidos antes de enviarlos
+        if (isNaN(estimateAmount) || !rangeTime) {
+            alert('Por favor, asegúrese de que el monto total y el rango de tiempo son válidos.');
+            return;
+        }
 
         const budgetData = {
             estimateAmount: estimateAmount,
@@ -26,14 +34,15 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch('http://localhost:8080/webProject_war_exploded/Budgets', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/json'
             },
-            body: new URLSearchParams(budgetData)
+            body: JSON.stringify(budgetData)
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data); // Verifica la respuesta
-                alert(`Presupuesto guardado: $${data.estimateAmount} para ${data.rangeTime}`);
+                console.log('Datos de estimateAmount:', data.estimateAmount);
+                console.log('Datos de rangeTime:', data.rangeTime);
+                alert(`puesto guardado: $${budgetData.estimateAmount} para ${budgetData.rangeTime}`);
             })
             .catch(error => {
                 console.error('Error:', error);
